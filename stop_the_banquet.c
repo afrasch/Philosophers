@@ -6,7 +6,7 @@
 /*   By: afrasch <afrasch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 10:36:49 by afrasch           #+#    #+#             */
-/*   Updated: 2022/04/19 18:24:19 by afrasch          ###   ########.fr       */
+/*   Updated: 2022/04/27 16:59:33 by afrasch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	destroy_all_wisdom(t_phi *phi)
 	free(phi->symposium);
 }
 
-bool	poke_the_dead(t_phi *phi)
+static bool	poke_the_dead(t_phi *phi)
 {
 	int	i;
 
@@ -43,8 +43,6 @@ bool	poke_the_dead(t_phi *phi)
 		if ((get_current_time() - phi->symposium[i].last_meal)
 			>= phi->args.time_to_die)
 		{
-			// phi->symposium[i].dead = -1;//als message: simulation beendet
-			// // in routine abfragen und jeden einzeln beenden ( wie mit pthread_join)
 			pthread_mutex_unlock(&phi->check_if_dead[i]);
 			print_output(&phi->print, i, DIED);
 			return (true);
@@ -56,7 +54,7 @@ bool	poke_the_dead(t_phi *phi)
 	return (false);
 }
 
-bool	poke_the_stomach(t_phi *phi)
+static bool	poke_the_stomach(t_phi *phi)
 {
 	pthread_mutex_lock(&phi->check_if_full);
 	if (phi->full_stomachs == phi->args.nb_of_philos)

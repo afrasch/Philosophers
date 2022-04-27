@@ -6,7 +6,7 @@
 /*   By: afrasch <afrasch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 19:57:33 by afrasch           #+#    #+#             */
-/*   Updated: 2022/04/18 13:51:58 by afrasch          ###   ########.fr       */
+/*   Updated: 2022/04/27 16:57:25 by afrasch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	init_mutex(t_phi *phi)
 	if (!phi->forks)
 		return (print_error("malloc failed"));
 	phi->check_if_dead = malloc(sizeof(pthread_mutex_t)
-		* phi->args.nb_of_philos);
+			* phi->args.nb_of_philos);
 	if (!phi->check_if_dead)
 		return (print_error("malloc failed"));
 	while (i < phi->args.nb_of_philos)
@@ -40,7 +40,7 @@ int	init_mutex(t_phi *phi)
 	return (0);
 }
 
-void	init_args(t_args *args)
+static void	init_args(t_args *args)
 {
 	args->must_eat_times = -1;
 	args->nb_of_philos = 0;

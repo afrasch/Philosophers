@@ -6,7 +6,7 @@
 /*   By: afrasch <afrasch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 11:30:36 by afrasch           #+#    #+#             */
-/*   Updated: 2022/04/26 20:58:11 by afrasch          ###   ########.fr       */
+/*   Updated: 2022/04/27 17:23:32 by afrasch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 	if (enter_the_gate(argc, argv, &phi->args) == ERROR)
 	{
 		print_input_instructions();
-		return (-1);
+		return (1);
 	}
 	if (init_mutex(phi) == ERROR)
 		return (ERROR);
@@ -45,7 +45,7 @@ int	main(int argc, char **argv)
 
 //todo:
 //comments raus
-//sanitize flag raus
+//sanitize flag checken, dann raus
 //static functions
 //unused vars and funcs aus .h file
 //comments

@@ -6,14 +6,14 @@
 /*   By: afrasch <afrasch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 20:24:42 by afrasch           #+#    #+#             */
-/*   Updated: 2022/03/29 20:27:17 by afrasch          ###   ########.fr       */
+/*   Updated: 2022/04/27 16:58:41 by afrasch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
 /* Returns the length of str.*/
-size_t	ft_strlen(char *str)
+static size_t	ft_strlen(char *str)
 {
 	int	i;
 
@@ -45,7 +45,7 @@ char	*ft_strchr(const char *str, int c)
 }
 
 /* Allocates and duplicates str. Returns a pointer to the new string */
-char	*ft_strdup(const char *str)
+static char	*ft_strdup(const char *str)
 {
 	int		i;
 	char	*dest;

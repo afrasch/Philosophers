@@ -6,7 +6,7 @@
 /*   By: afrasch <afrasch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 10:40:27 by afrasch           #+#    #+#             */
-/*   Updated: 2022/04/26 20:43:03 by afrasch          ###   ########.fr       */
+/*   Updated: 2022/04/27 17:25:30 by afrasch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,39 @@ long	get_current_time(void)
 	return ((timing.tv_sec * 1000) + (timing.tv_usec / 1000) - big_bang);
 }
 
-void	yousleep(int duration)
+void	yousleep(useconds_t duration, t_body *philo)
 {
-	long	now;
+	long			start;
+	long			now;
+	struct timeval	tv;
 
-	now = get_current_time();
-	while ((get_current_time() - now) < duration)
-		usleep(USLEEP);
+	gettimeofday(&tv, NULL);
+	start = tv.tv_sec * 1000 + tv.tv_usec / 1000;
+	now = start;
+	while (now - start < duration)
+	{
+		// usleep(USLEEP);// abhängig von philos machen?
+		usleep(philo->args.nb_of_philos);
+		gettimeofday(&tv, NULL);
+		now = tv.tv_sec * 1000 + tv.tv_usec / 1000;
+	}
 }
+// void	yousleep(useconds_t duration)
+// {
+// 	long			start;
+// 	long			now;
+// 	struct timeval	tv;
+
+// 	gettimeofday(&tv, NULL);
+// 	start = tv.tv_sec * 1000 + tv.tv_usec / 1000;
+// 	now = start;
+// 	while (now - start < duration)
+// 	{
+// 		usleep(USLEEP);// abhängig von philos machen?
+// 		gettimeofday(&tv, NULL);
+// 		now = tv.tv_sec * 1000 + tv.tv_usec / 1000;
+// 	}
+// }
 
 /* Allocating and creating one thread per philo.
    The threads get detached right afterwards. */
@@ -48,7 +73,7 @@ int	start_the_banquet(t_phi *phi)
 	while (i < phi->args.nb_of_philos)
 	{
 		if (pthread_create(&phi->threads[i], NULL, &same_procedure,
-			&phi->symposium[i]) != 0)
+				&phi->symposium[i]) != 0)
 			return (print_error("thread couldn't be created"));
 		if (pthread_detach(phi->threads[i]) != 0)
 			return (print_error("thread couldn't be detached"));

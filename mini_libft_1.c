@@ -6,7 +6,7 @@
 /*   By: afrasch <afrasch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 20:23:44 by afrasch           #+#    #+#             */
-/*   Updated: 2022/03/31 11:14:42 by afrasch          ###   ########.fr       */
+/*   Updated: 2022/04/27 16:58:14 by afrasch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /* Compares str1 and str2. Returns 0 if they are identical or the amount of
    different chars (>0 if str1 more, <0 if str2 is more). */
-int	ft_strcmp(const char *str1, const char *str2)
+static int	ft_strcmp(const char *str1, const char *str2)
 {
 	size_t	i;
 

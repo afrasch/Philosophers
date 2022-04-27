@@ -6,7 +6,7 @@
 /*   By: afrasch <afrasch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 11:17:42 by afrasch           #+#    #+#             */
-/*   Updated: 2022/04/26 21:11:25 by afrasch          ###   ########.fr       */
+/*   Updated: 2022/04/27 17:16:34 by afrasch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 
 /* macros */
 # define ERROR -1
+# define ENOUGH -1
 # define RIGHT 0
 # define LEFT 1
 # define USLEEP 500
@@ -52,7 +53,6 @@ typedef struct s_body
 	int				id;
 	t_args			args;
 	long			last_meal;
-	long			fell_asleep;
 	int				amount_of_meals;
 	pthread_mutex_t	*forks[2];
 	pthread_mutex_t	*print;
@@ -76,14 +76,15 @@ typedef struct s_phi
 /* prototypes */
 int		enter_the_gate(int argc, char **argv, t_args *args);
 int		init_mutex(t_phi *phi);
-void	init_struct_philosoph(t_phi *phi, int philo_id);
+void	init_body(t_phi *phi, int philo_id);
 int		grow_beards(t_phi *phi);
 int		start_the_banquet(t_phi *phi);
 long	get_current_time(void);
 void	*same_procedure(void *philo_struct);
 void	stop_the_banquet(t_phi *phi);
 void	destroy_all_wisdom(t_phi *phi);
-void	yousleep(int duration);
+void	yousleep(useconds_t duration, t_body *philo);
+// void	yousleep(useconds_t duration);
 
 int		ft_atoi(const char *str);
 char	*ft_strchr(const char *str, int c);

@@ -6,13 +6,13 @@
 #    By: afrasch <afrasch@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/29 15:22:48 by afrasch           #+#    #+#              #
-#    Updated: 2022/04/26 21:56:35 by afrasch          ###   ########.fr        #
+#    Updated: 2022/04/27 16:41:00 by afrasch          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= philo
 
-CFLAGS	= -Wall -Wextra -Werror #-fsanitize=thread
+CFLAGS	= -Wall -Wextra -Werror
 
 LIBS	= -pthreads
 

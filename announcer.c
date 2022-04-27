@@ -6,13 +6,13 @@
 /*   By: afrasch <afrasch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 12:13:46 by afrasch           #+#    #+#             */
-/*   Updated: 2022/04/18 13:50:14 by afrasch          ###   ########.fr       */
+/*   Updated: 2022/04/27 16:46:49 by afrasch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int		print_error(char *str)
+int	print_error(char *str)
 {
 	if (str)
 		printf("Error: %s\n", str);
@@ -35,7 +35,7 @@ void	print_input_instructions(void)
 void	print_output(pthread_mutex_t *mutex, int id, t_states state)
 {
 	id++;
-	if (state != DIED)//bewirkt manchmal meldung bei  ./philo 4 410 200 200 ??
+	if (state != DIED)
 	{
 		if (pthread_mutex_lock(mutex) != 0)
 			return ;

@@ -6,13 +6,13 @@
 /*   By: afrasch <afrasch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 10:45:05 by afrasch           #+#    #+#             */
-/*   Updated: 2022/04/19 18:30:24 by afrasch          ###   ########.fr       */
+/*   Updated: 2022/04/27 17:08:47 by afrasch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	init_struct_philosoph(t_phi *phi, int philo_id)
+void	init_body(t_phi *phi, int philo_id)
 {
 	phi->full_stomachs = 0;
 	phi->symposium[philo_id].print = &phi->print;
@@ -26,15 +26,9 @@ void	init_struct_philosoph(t_phi *phi, int philo_id)
 	phi->symposium[philo_id].id = philo_id;
 	phi->symposium[philo_id].last_meal = 0;
 	phi->symposium[philo_id].amount_of_meals = 0;
-	phi->symposium[philo_id].fell_asleep = 0;
 	phi->symposium[philo_id].forks[RIGHT] = &phi->forks[philo_id];
-	// alternativ:
-	// if ((philo_id + 1) == phi->args->nb_of_philos)
-	// 	phi->symposium[philo_id].forks[LEFT] = 0;
-	// else
-	// 	phi->symposium[philo_id].forks[LEFT] = &phi->forks[philo_id + 1];
 	phi->symposium[philo_id].forks[LEFT] = &phi->forks[(philo_id + 1)
-		 % phi->args.nb_of_philos];
+		% phi->args.nb_of_philos];
 }
 
 /* Allocating the philosophers bodies. */
@@ -48,7 +42,7 @@ int	grow_beards(t_phi *phi)
 	i = 0;
 	while (i < phi->args.nb_of_philos)
 	{
-		init_struct_philosoph(phi, i);
+		init_body(phi, i);
 		i++;
 	}
 	return (0);
