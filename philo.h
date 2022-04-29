@@ -6,7 +6,7 @@
 /*   By: afrasch <afrasch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 11:17:42 by afrasch           #+#    #+#             */
-/*   Updated: 2022/04/27 17:16:34 by afrasch          ###   ########.fr       */
+/*   Updated: 2022/04/28 12:38:44 by afrasch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,7 @@ long	get_current_time(void);
 void	*same_procedure(void *philo_struct);
 void	stop_the_banquet(t_phi *phi);
 void	destroy_all_wisdom(t_phi *phi);
-void	yousleep(useconds_t duration, t_body *philo);
-// void	yousleep(useconds_t duration);
+void	yousleep(useconds_t duration);
 
 int		ft_atoi(const char *str);
 char	*ft_strchr(const char *str, int c);

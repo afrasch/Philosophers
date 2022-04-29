@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_the_banquet.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afrasch <afrasch@student.42.fr>            +#+  +:+       +#+        */
+/*   By: afrasch <afrasch@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/31 10:40:27 by afrasch           #+#    #+#             */
-/*   Updated: 2022/04/27 17:25:30 by afrasch          ###   ########.fr       */
+/*   Created: 2022/04/29 14:11:25 by afrasch           #+#    #+#             */
+/*   Updated: 2022/04/29 14:11:30 by afrasch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ long	get_current_time(void)
 	return ((timing.tv_sec * 1000) + (timing.tv_usec / 1000) - big_bang);
 }
 
-void	yousleep(useconds_t duration, t_body *philo)
+void	yousleep(useconds_t duration)
 {
 	long			start;
 	long			now;
@@ -37,28 +37,11 @@ void	yousleep(useconds_t duration, t_body *philo)
 	now = start;
 	while (now - start < duration)
 	{
-		// usleep(USLEEP);// abhängig von philos machen?
-		usleep(philo->args.nb_of_philos);
+		usleep(USLEEP);
 		gettimeofday(&tv, NULL);
 		now = tv.tv_sec * 1000 + tv.tv_usec / 1000;
 	}
 }
-// void	yousleep(useconds_t duration)
-// {
-// 	long			start;
-// 	long			now;
-// 	struct timeval	tv;
-
-// 	gettimeofday(&tv, NULL);
-// 	start = tv.tv_sec * 1000 + tv.tv_usec / 1000;
-// 	now = start;
-// 	while (now - start < duration)
-// 	{
-// 		usleep(USLEEP);// abhängig von philos machen?
-// 		gettimeofday(&tv, NULL);
-// 		now = tv.tv_sec * 1000 + tv.tv_usec / 1000;
-// 	}
-// }
 
 /* Allocating and creating one thread per philo.
    The threads get detached right afterwards. */

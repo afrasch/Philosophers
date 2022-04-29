@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arrival.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afrasch <afrasch@student.42.fr>            +#+  +:+       +#+        */
+/*   By: afrasch <afrasch@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 11:30:36 by afrasch           #+#    #+#             */
-/*   Updated: 2022/04/27 17:23:32 by afrasch          ###   ########.fr       */
+/*   Updated: 2022/04/29 14:11:42 by afrasch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,3 @@ int	main(int argc, char **argv)
 	free(phi);
 	return (0);
 }
-
-// eval tests:
-// ./philo 1 800 200 200
-// ./philo 5 800 200 200
-// ./philo 5 800 200 200 7
-// ./philo 4 410 200 200
-// ./philo 4 310 200 100
-
-//todo:
-//comments raus
-//sanitize flag checken, dann raus
-//static functions
-//unused vars and funcs aus .h file
-//comments
-//alle tests
-//leaks
-//outfile loschen
-//norminette

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   the_routine.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afrasch <afrasch@student.42.fr>            +#+  +:+       +#+        */
+/*   By: afrasch <afrasch@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/18 14:07:23 by afrasch           #+#    #+#             */
-/*   Updated: 2022/04/27 17:18:09 by afrasch          ###   ########.fr       */
+/*   Created: 2022/04/29 14:11:08 by afrasch           #+#    #+#             */
+/*   Updated: 2022/04/29 14:11:20 by afrasch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ static int	count_meals(t_body *philo)
 
 static void	fall_asleep(t_body *philo)
 {
-	yousleep(philo->args.time_to_eat, philo);
+	yousleep(philo->args.time_to_eat);
 	print_output(philo->print, philo->id, SLEEPING);
 }
 
 static void	time_to_think_about_stuff(t_body *philo)
 {
-	yousleep(philo->args.time_to_sleep, philo);
+	yousleep(philo->args.time_to_sleep);
 	print_output(philo->print, philo->id, THINKING);
 }
 
@@ -60,7 +60,7 @@ void	*same_procedure(void *philo_struct)
 	meals = 0;
 	philo = philo_struct;
 	if (philo->id % 2 == 1)
-		yousleep(philo->args.time_to_eat, philo);
+		yousleep(philo->args.time_to_eat);
 	while (43)
 	{
 		get_involved(philo);
